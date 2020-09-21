@@ -1,0 +1,27 @@
+﻿Field name,Data type,start,length,Comments,Value
+LOG-RECORD, ,1,100,,
+LOG-RECORD,GROUP,1,100,,
+FILLER,AN,1,1,,|
+LOG-DATE     ,N,2,8,,
+FILLER       ,AN,10,1,,/
+LOG-TIME     ,N,11,8,,
+FILLER       ,AN,19,1,,-
+LOG-PROG-TYPE,AN,20,1,"B-Batch, O-Online",
+FILLER     ,AN,21,1,,-
+LOG-PROG-ID,AN,22,8,Name of the prog that made the update,
+FILLER     ,AN,30,1,,|
+LOG-CUSNUM ,N,31,9,borrower SIN number,
+FILLER     ,AN,40,5,, CHG;
+LOG-DETAIL,AN,45,56,Different format based on what field changed,
+detail v1,,,,,
+FILLER      ,AN,45,9,,NAA-TELE=
+LOG-NAA-TELE,N,54,10,Primary phone number,
+FILLER      ,AN,64,37,Unused area,
+detail v2,,,,,
+FILLER       ,AN,45,14,,NAA-TELE-TYPE=
+NAA-TELE-TYPE,AN,59,1,Phone number type (H-Home….),
+FILLER       ,AN,60,41,Unused area,
+detail v3,,,,,
+FILLER       ,AN,45,14,,NAA-EXTENSION=
+NAA-EXTENSION,AN,59,4,Extension for phone number,
+FILLER       ,AN,63,38,Unused area,

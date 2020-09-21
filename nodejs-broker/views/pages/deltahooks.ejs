@@ -1,0 +1,40 @@
+<%- include('../template/head')-%>
+<body class="text-center">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <%- include('../template/nav')-%>
+        <h1 class="cover-heading">Delta Hooks Example</h1>
+        <div class="container bg-light text-dark" style="width:800px">
+            <table class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Borrower Id</th>
+                        <th>Field</th>
+                        <th>From Value</th>
+                        <th>To Value</th>
+                        <th>Change Date</th>
+                        <th>Change Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <%dataset.forEach(function(entry) {%>
+                    <tr>
+                        <td><%=entry.borrowerid%></td>
+                        <td><%=entry.field%></td>
+                        <td><%=entry.fromvalue%></td>
+                        <td><%=entry.tovalue%></td>
+                        <td><%=entry.changedate%></td>
+                        <td><%=entry.changetime%></td>
+                    </tr>
+                <%});%>
+                </tbody>
+            </table>
+        </div>
+        <%- include('../template/footer')-%>
+    </div>
+</body>
+<script>
+    window.onload = function() {
+        document.getElementById('deltahooks').classList.add('active');
+    };
+</script>
+</html>

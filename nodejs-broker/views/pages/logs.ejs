@@ -1,0 +1,65 @@
+<%- include('../template/head')-%>
+<body class="text-left">
+    <!--<div class="cover-container"> -->
+    <!-- <div class="cover-container d-flex w-20 h-20 p-3 mx-auto flex-column"> -->
+    <div class="cover-container d-flex w-20 h-20 p-3 flex-column">
+        <%- include('../template/nav')-%>
+        <main role="main" class="inner cover">
+            <h4 class="cover-heading">Log Files</h4>
+            <div class="container bg-light text-dark" style="width:1000px">
+                <form method="POST" action="/logspersin">
+                    <span class="form-group">
+                        <table>
+                            <tr>
+                                <td>SIN#&nbsp;:</td>
+                                <td><input type="text" class="form-control" id="sinno" name="sinno" placeholder="Enter SIN#" value="<%=sin%>"></span></td>
+                                <td><button type="submit" class="btn btn-dark">Submit</button></td>
+                                <%if (!(err == undefined)){%>
+                                <td style="color:red;">&nbsp;<%=err%></td>
+                                <%} else {%>
+                                    <td style="color: brown;">&nbsp;</td>
+                                <%};%>
+                                %>
+                            </tr>
+                        </table>
+                    </span>
+                </form>
+                <%if (!(logs == undefined)){%>
+                <table class="table table-striped" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Datetime</th>
+                            <th>Origin</th>
+                            <th>Program</th>
+                            <th>SIN#</th>
+                            <th>Action</th>
+                            <th>Field</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <%logs.forEach(function(log) {%>
+                        <tr>
+                            <td><%=log.datetime%></td>
+                            <td><%=log.origin%></td>
+                            <td><%=log.program%></td>
+                            <td><%=log.sin%></td>
+                            <td><%=log.action%></td>
+                            <td><%=log.field%></td>
+                            <td><%=log.value%></td>
+                        </tr>
+                    <%});%>
+                    </tbody>
+                </table>
+            <%};%>
+            </div>
+        </main>
+        <span class="text-center"><%- include('../template/footer')-%></span>
+    </div>
+</body>
+<script>
+    window.onload = function() {
+        document.getElementById('logs').classList.add('active');
+    };
+</script>
+</html>
