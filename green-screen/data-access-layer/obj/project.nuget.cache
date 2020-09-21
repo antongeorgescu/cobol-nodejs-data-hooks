@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "OyIoVfKgH+vWQPtTQsjBK6jkivzlA7Xjqb8o5zaCUhhh9x9gk5pQqnHRNOoKpAFYf5bIzi4G+DoINtxO0Bkf6A==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ag4488\\Documents\\Visual Studio 2019\\Projects\\cobol-nodejs-data-hooks\\green-screen\\data-access-layer\\data-access-layer.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ag4488\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\ag4488\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

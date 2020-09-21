@@ -1,0 +1,9 @@
+C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\data-access-layer\bin\Debug\netstandard2.0\data-access-layer.deps.json
+C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\data-access-layer\bin\Debug\netstandard2.0\data-access-layer.dll
+C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\data-access-layer\bin\Debug\netstandard2.0\data-access-layer.pdb
+C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\data-access-layer\obj\Debug\netstandard2.0\data-access-layer.csprojAssemblyReference.cache
+C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\data-access-layer\obj\Debug\netstandard2.0\data-access-layer.AssemblyInfoInputs.cache
+C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\data-access-layer\obj\Debug\netstandard2.0\data-access-layer.AssemblyInfo.cs
+C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\data-access-layer\obj\Debug\netstandard2.0\data-access-layer.csproj.CoreCompileInputs.cache
+C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\data-access-layer\obj\Debug\netstandard2.0\data-access-layer.dll
+C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\data-access-layer\obj\Debug\netstandard2.0\data-access-layer.pdb
