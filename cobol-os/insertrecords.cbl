@@ -1,5 +1,5 @@
 IDENTIFICATION DIVISION.
-PROGRAM-ID. StudentWrite.
+PROGRAM-ID. InsertRecords.
 AUTHOR. Michael Coughlan.
 *> This program updates the Students.Dat file with insertions
 *> taken from the Transins.Dat file to create a new file
@@ -24,7 +24,6 @@ FILE-CONTROL.
 
 
 DATA DIVISION.
-
 FILE SECTION.
 FD StudentRecords.
 01 StudentRecord.
@@ -40,11 +39,6 @@ FD TransRecords.
 
 FD NewStudentRecords.
 01 NewStudentRecord        PIC X(46).
-
-WORKING-STORAGE SECTION.                                               
-01 LOGLINE.                                                            
-   05 STR pic x occurs 50 to 200 times depending on STRLEN.  
-77 STRLEN pic 9(9). 
 
 
 PROCEDURE DIVISION.
@@ -72,30 +66,18 @@ BEGIN.
          WHEN (StudentID > TransStudentID)
               DISPLAY "Insert - " TransStudentId " new record:      "  TransRecord   
               WRITE NewStudentRecord FROM TransRecord
-              *>   Capture insertion TransRecord
-              MOVE ZEROS TO LOGLINE(1:STRLEN)                                   
-              MOVE 46 TO STRLEN                                                 
-              MOVE NewStudentRecord TO LOGLINE                      
-              CALL "logger" USING BY REFERENCE LOGLINE, STRLEN  
-              
               READ TransRecords
                   AT END SET EndOfTransFile TO TRUE
               END-READ
-            
+            *>   Capture insertion TransRecord
+
          WHEN (StudentID = TransStudentID)
               DISPLAY "Update - " TransStudentId " existing record: " TransRecord
               WRITE NewStudentRecord FROM TransRecord
-              *>   Capture update TransRecord
-              MOVE ZEROS TO LOGLINE(1:STRLEN)                                   
-              MOVE 46 TO STRLEN                                                 
-              MOVE NewStudentRecord TO LOGLINE                      
-              CALL "logger" USING BY REFERENCE LOGLINE, STRLEN
-              
               READ TransRecords
                   AT END SET EndOfTransFile TO TRUE
               END-READ
-              
-              
+            *>   Capture update TransRecord
        END-EVALUATE
     END-PERFORM
     

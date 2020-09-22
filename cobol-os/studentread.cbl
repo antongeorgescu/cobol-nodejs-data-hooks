@@ -1,5 +1,5 @@
 IDENTIFICATION DIVISION.
-PROGRAM-ID.  studentread.
+PROGRAM-ID.  StudentRead.
 AUTHOR.  Michael Coughlan.
 *> An example showing how to read a sequential file without
 *> using condition names.
