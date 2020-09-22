@@ -57,6 +57,8 @@ namespace user_interface
         private void bnRunTransactions_Click(object sender, EventArgs e)
         {
             var changeTable = ds.Tables[0].GetChanges();
+            if (changeTable == null)
+                return;
 
             // Update transins.dat table
             var rows = changeTable.Rows;
@@ -66,13 +68,13 @@ namespace user_interface
             {
                 var formattedLine = new StringBuilder();
                 
-                formattedLine.Append($"{row.ItemArray[0],-7}");
-                formattedLine.Append($"{row.ItemArray[1].ToString().Substring(0,8),-8}");
+                formattedLine.Append(row.ItemArray[0].ToString().PadRight(7,' '));
+                formattedLine.Append(row.ItemArray[1].ToString().PadRight(8, ' '));
                 formattedLine.Append($"{row.ItemArray[2],2}");
-                formattedLine.Append($"{row.ItemArray[3].ToString().Substring(0,8),-8}");
-                formattedLine.Append($"{row.ItemArray[4].ToString().Substring(0,10),-10}");
-                formattedLine.Append($"{row.ItemArray[5].ToString().Substring(0,4)}");
-                formattedLine.Append($"{row.ItemArray[6],1}");
+                formattedLine.Append(row.ItemArray[3].ToString().PadRight(8, ' '));
+                formattedLine.Append(row.ItemArray[4].ToString().PadRight(10, ' '));
+                formattedLine.Append(row.ItemArray[5].ToString());
+                formattedLine.Append(row.ItemArray[6].ToString());
                 formattedLine.Append($"{row.ItemArray[7].ToString().PadLeft(5,'0')}");
 
                 lines.Add(formattedLine.ToString());
@@ -175,8 +177,8 @@ namespace user_interface
             DataGridViewCell currCell = dgvStudentRecords.Rows[rowIndex].Cells[colIndex];
             DataGridViewCell prevCell = dgvStudentRecords.Rows[rowIndex - 1].Cells[colIndex];
 
-            if (colIndex > 0)
-                return false;
+            //if (colIndex > 0)
+            //    return false;
             
             if ((currCell.Value == prevCell.Value) ||
                 (currCell.Value != null && prevCell.Value != null &&
