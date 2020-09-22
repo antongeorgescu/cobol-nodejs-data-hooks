@@ -1,0 +1,16 @@
+C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\unit-test-project\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\unit-test-project\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\unit-test-project\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\unit-test-project\bin\Debug\unit-test-project.dll
+C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\unit-test-project\bin\Debug\unit-test-project.pdb
+C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\unit-test-project\bin\Debug\data-access-layer.dll
+C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\unit-test-project\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\unit-test-project\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\unit-test-project\bin\Debug\data-access-layer.pdb
+C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\unit-test-project\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\unit-test-project\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\unit-test-project\obj\Debug\unit-test-project.csprojAssemblyReference.cache
+C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\unit-test-project\obj\Debug\unit-test-project.csproj.CoreCompileInputs.cache
+C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\unit-test-project\obj\Debug\unit-test-project.csproj.CopyComplete
+C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\unit-test-project\obj\Debug\unit-test-project.dll
+C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\unit-test-project\obj\Debug\unit-test-project.pdb

@@ -1,10 +1,13 @@
 C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\user-interface\bin\Debug\user-interface.exe.config
 C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\user-interface\bin\Debug\user-interface.exe
 C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\user-interface\bin\Debug\user-interface.pdb
-C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\user-interface\obj\Debug\user-interface.csprojAssemblyReference.cache
 C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\user-interface\obj\Debug\user_interface.Dashboard.resources
 C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\user-interface\obj\Debug\user_interface.Properties.Resources.resources
 C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\user-interface\obj\Debug\user-interface.csproj.GenerateResource.cache
 C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\user-interface\obj\Debug\user-interface.csproj.CoreCompileInputs.cache
 C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\user-interface\obj\Debug\user-interface.exe
 C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\user-interface\obj\Debug\user-interface.pdb
+C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\user-interface\bin\Debug\data-access-layer.dll
+C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\user-interface\bin\Debug\data-access-layer.pdb
+C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\user-interface\obj\Debug\user-interface.csprojAssemblyReference.cache
+C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\user-interface\obj\Debug\user-interface.csproj.CopyComplete

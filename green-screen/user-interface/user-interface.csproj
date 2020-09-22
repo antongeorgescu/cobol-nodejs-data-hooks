@@ -79,5 +79,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\data-access-layer\data-access-layer.csproj">
+      <Project>{E1B9E467-53E9-4AA1-8DEC-5F7FEE5DCC85}</Project>
+      <Name>data-access-layer</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
