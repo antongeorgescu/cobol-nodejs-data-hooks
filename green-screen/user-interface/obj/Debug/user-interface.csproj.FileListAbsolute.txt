@@ -11,3 +11,6 @@ C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\gr
 C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\user-interface\bin\Debug\data-access-layer.pdb
 C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\user-interface\obj\Debug\user-interface.csprojAssemblyReference.cache
 C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\user-interface\obj\Debug\user-interface.csproj.CopyComplete
+C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\user-interface\bin\Debug\System.Management.Automation.dll
+C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\user-interface\bin\Debug\Microsoft.Management.Infrastructure.dll
+C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\user-interface\bin\Debug\System.Management.Automation.xml

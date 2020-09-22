@@ -9,7 +9,7 @@ AUTHOR.  Michael Coughlan.
 ENVIRONMENT DIVISION.
 INPUT-OUTPUT SECTION.
 FILE-CONTROL.
-       SELECT StudentFile ASSIGN TO "C:\Users\ag4488\Documents\Visual Studio 2019\Projects\COBOL\data\students.dat"
+       SELECT StudentFile ASSIGN TO "C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\cobol-os\data\students.dat"
            ORGANIZATION IS LINE SEQUENTIAL.
 
 DATA DIVISION.

@@ -10,15 +10,15 @@ AUTHOR. Michael Coughlan.
 ENVIRONMENT DIVISION.
 INPUT-OUTPUT SECTION.
 FILE-CONTROL.
-      SELECT StudentRecords ASSIGN "C:\Users\ag4488\Documents\Visual Studio 2019\Projects\COBOL\data\students.dat"
+      SELECT StudentRecords ASSIGN "C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\cobol-os\data\students.dat"
              ORGANIZATION IS LINE SEQUENTIAL
              ACCESS MODE IS SEQUENTIAL.
 
-      SELECT TransRecords ASSIGN "C:\Users\ag4488\Documents\Visual Studio 2019\Projects\COBOL\data\transins.dat"
+      SELECT TransRecords ASSIGN "C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\cobol-os\data\transins.dat"
              ORGANIZATION IS LINE SEQUENTIAL
              ACCESS MODE IS SEQUENTIAL.
 
-      SELECT NewStudentRecords ASSIGN "C:\Users\ag4488\Documents\Visual Studio 2019\Projects\COBOL\data\students1.dat"
+      SELECT NewStudentRecords ASSIGN "C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\cobol-os\data\students1.dat"
              ORGANIZATION IS LINE SEQUENTIAL
              ACCESS MODE IS SEQUENTIAL.
 
