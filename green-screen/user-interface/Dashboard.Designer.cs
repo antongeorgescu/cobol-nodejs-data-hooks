@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.dgvStudentRecords = new System.Windows.Forms.DataGridView();
             this.bnRunTransactions = new System.Windows.Forms.Button();
             this.bnRefreshData = new System.Windows.Forms.Button();
             this.tbExecResults = new System.Windows.Forms.TextBox();
+            this.bnReadSeqFile = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudentRecords)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,8 +79,19 @@
             this.tbExecResults.Location = new System.Drawing.Point(444, 483);
             this.tbExecResults.Multiline = true;
             this.tbExecResults.Name = "tbExecResults";
+            this.tbExecResults.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tbExecResults.Size = new System.Drawing.Size(652, 220);
             this.tbExecResults.TabIndex = 3;
+            // 
+            // bnReadSeqFile
+            // 
+            this.bnReadSeqFile.Location = new System.Drawing.Point(12, 540);
+            this.bnReadSeqFile.Name = "bnReadSeqFile";
+            this.bnReadSeqFile.Size = new System.Drawing.Size(193, 38);
+            this.bnReadSeqFile.TabIndex = 4;
+            this.bnReadSeqFile.Text = "Read Sequential File";
+            this.bnReadSeqFile.UseVisualStyleBackColor = true;
+            this.bnReadSeqFile.Click += new System.EventHandler(this.bnReadSeqFile_Click);
             // 
             // Dashboard
             // 
@@ -86,15 +99,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Green;
             this.ClientSize = new System.Drawing.Size(1108, 715);
+            this.Controls.Add(this.bnReadSeqFile);
             this.Controls.Add(this.tbExecResults);
             this.Controls.Add(this.bnRefreshData);
             this.Controls.Add(this.bnRunTransactions);
             this.Controls.Add(this.dgvStudentRecords);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Dashboard";
-            this.Text = "Green Screen";
+            this.Text = "Green Screen - COBOL User Interface";
             this.Load += new System.EventHandler(this.Dashboard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudentRecords)).EndInit();
             this.ResumeLayout(false);
@@ -108,6 +123,7 @@
         private System.Windows.Forms.Button bnRunTransactions;
         private System.Windows.Forms.Button bnRefreshData;
         private System.Windows.Forms.TextBox tbExecResults;
+        private System.Windows.Forms.Button bnReadSeqFile;
     }
 }
 

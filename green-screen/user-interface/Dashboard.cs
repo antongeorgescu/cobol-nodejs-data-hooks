@@ -227,5 +227,24 @@ namespace user_interface
                 args.AdvancedBorderStyle.Top = dgvStudentRecords.AdvancedCellBorderStyle.Top;
             }
         }
+
+        private void bnReadSeqFile_Click(object sender, EventArgs e)
+        {
+            // Execute PowerShell script that runs COBOL programs
+            var psScript = new StringBuilder();
+
+            var path = @"C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\cobol-os";
+            psScript.AppendLine($"$WorkingDir = \"{path}\"");
+            psScript.AppendLine("$Executable = Join-Path $WorkingDir \"\\studentread.exe\"");
+            psScript.AppendLine("$CurrMasterDataFile = Join-Path $WorkingDir \"\\data\\students.dat\"");
+            psScript.AppendLine("$fileExist = Test-Path $CurrMasterDataFile");
+            psScript.AppendLine("if ($fileExist) {& $Executable}");
+            
+            string resultline = RunScript(psScript.ToString())[0];
+            var results = resultline.Replace("\r\n", "*").Split('*').ToList<string>();
+            tbExecResults.Clear();
+            foreach (var result in results)
+                tbExecResults.AppendText($"{result}{Environment.NewLine}");
+        }
     }
 }

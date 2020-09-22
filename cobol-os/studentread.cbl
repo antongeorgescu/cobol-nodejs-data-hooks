@@ -36,7 +36,7 @@ main.
        AT END MOVE HIGH-VALUES TO StudentDetails
    END-READ
    DISPLAY "Id....." SPACE "Full Name." SPACE "G" SPACE "Code" SPACE "DOB......." SPACE "PhoneNo..." SPACE "$Loan"
-   DISPLAY "-----------------------------------------------------"
+   DISPLAY "------------------------------------------------------------------------------------------------------"
    PERFORM UNTIL StudentDetails = HIGH-VALUES
         DISPLAY StudentId SPACE StudentName SPACE Gender SPACE ProgramCode SPACE YOBirth "/" MOBirth "/" DOBirth SPACE  PhoneNo SPACE LoanAmount
        READ StudentFile
