@@ -49,4 +49,4 @@ FINISHED-NOW.
     END-STRING  
     WRITE LogStudentRecord FROM WS-CONCAT 
     CLOSE LogStudentRecords                                          
-    EXIT. 
+    GOBACK. 

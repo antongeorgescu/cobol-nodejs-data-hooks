@@ -44,11 +44,19 @@ FD NewStudentRecords.
 WORKING-STORAGE SECTION.                                               
 01 LOGLINE.                                                            
    05 STR pic x occurs 50 to 200 times depending on STRLEN.  
-77 STRLEN pic 9(9). 
-
+77 STRLEN pic 9(9) VALUE 54. 
+77 STRLEN1 pic 9(9) VALUE 46.
+77 STRLEN2 pic 9(9) VALUE 7.
+01 ACTION pic X(7).
+01 WS-CONCAT-LOG pic X(54).
 
 PROCEDURE DIVISION.
 BEGIN.
+    MOVE ZEROS TO LOGLINE(1:STRLEN1)                                   
+   *>  MOVE 46 TO STRLEN1                                                 
+    MOVE ZEROS TO ACTION(1:STRLEN2) 
+   *>  MOVE 7 TO STRLEN2  
+
     OPEN INPUT StudentRecords
     OPEN INPUT TransRecords
     OPEN OUTPUT NewStudentRecords
@@ -72,11 +80,14 @@ BEGIN.
          WHEN (StudentID > TransStudentID)
               DISPLAY "Insert - " TransStudentId " new record:      "  TransRecord   
               WRITE NewStudentRecord FROM TransRecord
+              
               *>   Capture insertion TransRecord
-              MOVE ZEROS TO LOGLINE(1:STRLEN)                                   
-              MOVE 46 TO STRLEN                                                 
-              MOVE NewStudentRecord TO LOGLINE                      
-              CALL "logger" USING BY REFERENCE LOGLINE, STRLEN  
+              MOVE NewStudentRecord TO LOGLINE
+              MOVE 'INSERT' TO ACTION 
+              STRING ACTION,LOGLINE DELIMITED BY SPACE
+                   INTO WS-CONCAT-LOG
+              END-STRING                    
+              CALL "logger" USING BY REFERENCE WS-CONCAT-LOG, STRLEN  
               
               READ TransRecords
                   AT END SET EndOfTransFile TO TRUE
@@ -85,17 +96,25 @@ BEGIN.
          WHEN (StudentID = TransStudentID)
               DISPLAY "Update - " TransStudentId " existing record: " TransRecord
               WRITE NewStudentRecord FROM TransRecord
-              *>   Capture update TransRecord
-              MOVE ZEROS TO LOGLINE(1:STRLEN)                                   
-              MOVE 46 TO STRLEN                                                 
-              MOVE NewStudentRecord TO LOGLINE                      
-              CALL "logger" USING BY REFERENCE LOGLINE, STRLEN
+              
+              *>   Capture updated TransRecord
+              MOVE NewStudentRecord TO LOGLINE
+              MOVE 'UPDATE' TO ACTION 
+              STRING ACTION,LOGLINE DELIMITED BY SPACE
+                   INTO WS-CONCAT-LOG
+              END-STRING                      
+              CALL "logger" USING BY REFERENCE WS-CONCAT-LOG, STRLEN
               
               READ TransRecords
                   AT END SET EndOfTransFile TO TRUE
               END-READ
-              
-              
+          
+         *>  *>   Capture insertion TransRecord
+         *>  MOVE NewStudentRecord TO LOGLINE
+         *>  STRING ACTION,LOGLINE DELIMITED BY SPACE
+         *>       INTO WS-CONCAT-LOG
+         *>  END-STRING     
+         *>  CALL "logger" USING BY REFERENCE WS-CONCAT-LOG, STRLEN      
        END-EVALUATE
     END-PERFORM
     
