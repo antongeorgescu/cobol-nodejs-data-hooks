@@ -51,6 +51,7 @@ app.get('/links',function (req, res) {
         {name:'ejs',url:'https://ejs.co'},
         {name:'expressjs',url:'https://expressjs.com'},
         {name:'IBM SDK for Node.js',url:'https://developer.ibm.com/node/sdk/'},
+        {name:'Readme file with useful links for this POC',url:'http://localhost:8081/resources/readme.txt'},
         // {name:'vuejs',url:'https://vuejs.org'},
         // {name:'nextjs',url:'https://nextjs.org'}
     ];
@@ -162,6 +163,8 @@ app.post('/form',function (req, res) {
     res.render('pages/form');
 });
 
+//****************************************** logspersin ****************************************************************************/
+
 app.get('/logspersin',messages,function (req, res) {
     res.render('pages/logs',{sin:undefined,logs:undefined,err:undefined});
 });
@@ -243,6 +246,89 @@ app.post('/logspersin',function (req, res) {
         }
         
         res.render('pages/logs',{
+            sin:sinno,logs:reslogs,err:errmsg
+        })
+    });
+});
+
+//****************************************** logspoc ****************************************************************************/
+app.get('/logspoc',messages,function (req, res) {
+    res.render('pages/logspoc',{sin:undefined,logs:undefined,err:undefined});
+});
+
+app.post('/logspoc',function (req, res) {
+    var loglist = []
+    
+    var sinno=req.body.sinno;
+
+    logfilepath = 'C:\\Users\\ag4488\\Documents\\Visual Studio 2019\\Projects\\cobol-nodejs-data-hooks\\cobol-os\\data\\logs.dat'
+    //logfilepath = `${__dirname}\\data\\${logfilename}`
+    var readStream = fs.createReadStream(logfilepath, 'utf8');
+    let data = ''
+    readStream.on('data', function(chunk) {
+        data += chunk;
+    }).on('end', function() {
+        rows = data.split('\r\n')
+        rows.forEach((row) => {
+            year = row.substring(0,4)
+            month = row.substring(4,6)
+            day = row.substring(6,8)
+            hour = row.substring(8,10)
+            min = row.substring(10,12)
+            sec = row.substring(12,14) 
+            cent = row.substring(14,16)
+            log = {
+                datetime:new Date(`${year}/${month}/${day} ${hour}:${min}:${sec}:${cent}`).toUTCString(),
+                sin:row.substring(17,24),
+                name:row.substring(24,34),
+                dob:`${row.substring(34,38)}/${row.substring(38,40)}/${row.substring(40,42)}`,
+                phoneNo:row.substring(42,52),
+                programCode:row.substring(52,56),
+                gender:row.substring(56,57),
+                loanAmount:row.substring(57,62)
+            }
+            loglist.push(log)
+            console.log(log)
+        })
+    }).on('end',() => {
+        console.log(loglist);
+        
+        reslogs = undefined
+        errmsg = undefined
+        
+        sinlogs = []
+        if (sinno == 'ALL'){
+            sinlogs = loglist;
+            reslogs = sinlogs.sort(function(x,y){return x.datetime - y.datetime}); 
+        }
+        else 
+        {
+            if (!isNaN(sinno))
+            {     
+                // sinno is NUMBER
+                loglist.forEach(x => {
+                    if (x.sin == sinno){
+                        sinlogs.push(x)
+                    }
+                });
+                if (sinlogs.length == 0)
+                {
+                    // there are NO RECORDS under that sinno
+                    errmsg = 'Student ID you entered is not captured in the log files!';
+                }
+                else {
+                    // there are RECORDS under that sinno
+                    reslogs = sinlogs.sort(function(x,y){return x.datetime - y.datetime}); 
+                }
+            }
+            else
+            {
+                // sinno is NOT NUMBER
+                errmsg = 'Student ID you entered in not valid!';
+            }
+        }
+        
+        res.render('pages/logspoc',{
             sin:sinno,logs:reslogs,err:errmsg
         })
     });
