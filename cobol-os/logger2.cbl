@@ -39,14 +39,15 @@ Begin.
     OPEN EXTEND LogStudentRecords.  
                                              
     MOVE parm1 TO LOGLINE                     
-    DISPLAY "external caller program passed: " LOGLINE. 
+    DISPLAY "External caller program passed: " LOGLINE. 
     MOVE FUNCTION CURRENT-DATE to WS-CURRENT-DATE-DATA
     STRING WS-CURRENT-DATE-DATA DELIMITED BY SPACE
            ' '   DELIMITED BY SIZE
            LOGLINE
        INTO WS-CONCAT
     END-STRING  
-    WRITE LogStudentRecord FROM WS-CONCAT. 
+    WRITE LogStudentRecord FROM WS-CONCAT.
+    DISPLAY "<><><><><><><> Write log: " WS-CONCAT. 
     CLOSE LogStudentRecords. 
 
     DISPLAY "<<<<<<<<<<<<<< Leaving sub-program now".

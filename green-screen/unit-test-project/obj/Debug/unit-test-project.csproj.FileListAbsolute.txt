@@ -17,3 +17,9 @@ C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\gr
 C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\unit-test-project\bin\Debug\System.Management.Automation.dll
 C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\unit-test-project\bin\Debug\Microsoft.Management.Infrastructure.dll
 C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\unit-test-project\bin\Debug\System.Management.Automation.xml
+C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\unit-test-project\bin\Debug\Microsoft.Dynamic.dll
+C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\unit-test-project\bin\Debug\Microsoft.Scripting.dll
+C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\unit-test-project\bin\Debug\Microsoft.Scripting.Metadata.dll
+C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\unit-test-project\bin\Debug\Microsoft.Dynamic.xml
+C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\unit-test-project\bin\Debug\Microsoft.Scripting.xml
+C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\unit-test-project\bin\Debug\Microsoft.Scripting.Metadata.xml

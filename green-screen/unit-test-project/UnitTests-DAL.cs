@@ -6,6 +6,7 @@ using System.Management.Automation;
 using System.Management.Automation.Runspaces;
 using System.Text;
 using data_access_layer;
+using Microsoft.Scripting.Hosting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace unit_test_project
@@ -63,12 +64,54 @@ namespace unit_test_project
             ps.AddScript(psScriptPath);
             ps.Invoke();
 
-            var executablePath = $"{homeDir}\\studentwrite.exe";
-            ProcessStartInfo startInfo = new ProcessStartInfo(executablePath);
-            startInfo.WindowStyle = ProcessWindowStyle.Minimized;
-            Process.Start(startInfo);
+            //var executablePath = $"{homeDir}\\studentwrite.exe";
+            //ProcessStartInfo startInfo = new ProcessStartInfo(executablePath);
+            //startInfo.WindowStyle = ProcessWindowStyle.Minimized;
+            //Process.Start(startInfo);
+
+            using (Runspace runspace = RunspaceFactory.CreateRunspace())
+            {
+
+                runspace.Open();
+                Pipeline pipeline = runspace.CreatePipeline();
+                pipeline.Commands.AddScript(@"C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\cobol-os\runtrxs_ut1.ps1");
+                pipeline.Commands.Add("Out-String");
+                Collection<PSObject> results = pipeline.Invoke();
+            }
 
             Assert.IsTrue(39 == 39);
+        }
+
+        [TestMethod]
+        public void RunPsScriptElevated()
+        {
+            // change PowerShell script execution policy
+            // Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+            IEnumerable<PSObject> results;
+            var config = RunspaceConfiguration.Create();
+            //var host = new ScriptHost();
+            var cobolDir = @"C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\cobol-os";
+            var scriptDir = @"C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\cobol-os";
+            var script = $"runtrxs_ut1.ps1 \"{cobolDir}\"";
+            using (var runspace = RunspaceFactory.CreateRunspace(config))
+            {
+                runspace.Open();
+                runspace.SessionStateProxy.SetVariable("prog", this);
+
+                using (var pipeline = runspace.CreatePipeline())
+                {
+                    if (!string.IsNullOrEmpty(scriptDir))
+                        pipeline.Commands.AddScript(string.Format("$env:path = \"{0};\" + $env:path", scriptDir));
+
+                    pipeline.Commands.AddScript(script);
+
+                    var outDefault = new Command("out-default");
+                    outDefault.MergeMyResults(PipelineResultTypes.Error, PipelineResultTypes.Output);
+                    pipeline.Commands.Add(outDefault);
+
+                    results = pipeline.Invoke();
+                }
+            }
         }
 
         private List<string> RunScript(string scriptText)
