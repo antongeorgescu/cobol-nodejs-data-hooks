@@ -33,20 +33,22 @@ LINKAGE SECTION.
    05 parma pic x occurs 50 to 200 times depending on parmlen.           
 77 parmlen pic 9(9).                                                   
 PROCEDURE DIVISION USING parm1 parmlen.                                
-FINISHED-NOW.       
-    OPEN EXTEND LogStudentRecords  
+*> FINISHED-NOW. 
+BEGIN.      
+    OPEN EXTEND LogStudentRecords.  
                                                     
     MOVE 200 TO STRLEN.                                                
     MOVE ZEROS TO LOGLINE(1:STRLEN)                                   
     MOVE PARMLEN TO STRLEN                                            
     MOVE PARM1(1:PARMLEN) TO LOGLINE(1:STRLEN)                        
-    DISPLAY "external caller program passed: " LOGLINE 
+    DISPLAY "external caller program passed: " LOGLINE. 
     MOVE FUNCTION CURRENT-DATE to WS-CURRENT-DATE-DATA
     STRING WS-CURRENT-DATE-DATA DELIMITED BY SPACE
            ' '   DELIMITED BY SIZE
            LOGLINE
        INTO WS-CONCAT
     END-STRING  
-    WRITE LogStudentRecord FROM WS-CONCAT 
-    CLOSE LogStudentRecords                                          
-    GOBACK. 
+    WRITE LogStudentRecord FROM WS-CONCAT. 
+    CLOSE LogStudentRecords.                                          
+    EXIT PROGRAM.
+   *>  GOBACK.

@@ -95,7 +95,7 @@ namespace user_interface
             psScript.AppendLine("Copy-Item $OrigMasterDataFile -Destination $DestinationFile");
             psScript.AppendLine("$Executable = Join-Path $WorkingDir \"\\studentwrite.exe\"");
             psScript.AppendLine("& $Executable");
-
+            
             // remove students.dat file and rename students1.dat
             psScript.AppendLine("Remove-Item $CurrMasterDataFile");
             psScript.AppendLine("$NewMasterDataFile = Join-Path $WorkingDir \"\\data\\students1.dat\"");
