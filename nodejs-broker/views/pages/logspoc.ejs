@@ -29,6 +29,7 @@
                     <thead>
                         <tr>
                             <th>Datetime</th>
+                            <th>Action</th>
                             <th>Student ID</th>
                             <th>Student Name</th>
                             <th>DOB</th>
@@ -42,6 +43,7 @@
                     <%logs.forEach(function(log) {%>
                         <tr>
                             <td><%=log.datetime%></td>
+                            <td><%=log.action%></td>
                             <td><%=log.sin%></td>
                             <td><%=log.name%></td>
                             <td><%=log.dob%></td>

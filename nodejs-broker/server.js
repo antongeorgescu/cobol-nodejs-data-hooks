@@ -279,13 +279,15 @@ app.post('/logspoc',function (req, res) {
             cent = row.substring(14,16)
             log = {
                 datetime:new Date(`${year}/${month}/${day} ${hour}:${min}:${sec}:${cent}`).toUTCString(),
-                sin:row.substring(17,24),
-                name:row.substring(24,34),
-                dob:`${row.substring(34,38)}/${row.substring(38,40)}/${row.substring(40,42)}`,
-                phoneNo:row.substring(42,52),
-                programCode:row.substring(52,56),
-                gender:row.substring(56,57),
-                loanAmount:row.substring(57,62)
+                action:row.substring(17,23),
+                sin:row.substring(24,31), //17,24
+                name:row.substring(31,41), //24,34
+                // 34,38   38,40   40,42
+                dob:`${row.substring(41,45)}/${row.substring(45,47)}/${row.substring(47,49)}`,
+                phoneNo:row.substring(49,59),  //42,52
+                programCode:row.substring(59,63),  //52,56
+                gender:row.substring(63,64),  //56,57
+                loanAmount:row.substring(64,69)  //57,62
             }
             loglist.push(log)
             console.log(log)
