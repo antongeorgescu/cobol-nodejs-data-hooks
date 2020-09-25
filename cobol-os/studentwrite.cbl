@@ -46,7 +46,7 @@ WORKING-STORAGE SECTION.
 *> 77 STRLEN pic 9(9) VALUE 52. 
 *> 77 STRLEN1 pic 9(9) VALUE 45.
 *> 77 STRLEN2 pic 9(9) VALUE 7.
-01 ACTION pic X(7).
+01 ACTION pic X(6).
 01 WS-CONCAT-LOG pic X(54).
 
 *> 01 WS-DATA pic X(20) VALUE 'Mainframes tech help'.
@@ -108,10 +108,10 @@ BEGIN.
               *>   Capture insertion TransRecord
               MOVE NewStudentRecord TO LOGLINE
               MOVE 'INSERT' TO ACTION 
-              STRING ACTION,LOGLINE DELIMITED BY SIZE
+              STRING ACTION,'*',LOGLINE DELIMITED BY SIZE
                    INTO WS-CONCAT-LOG
               END-STRING   
-                             
+              DISPLAY 'Data passed to sub-program: ' WS-CONCAT-LOG                 
               CALL "logger2" USING BY REFERENCE WS-CONCAT-LOG
               
               READ TransRecords
@@ -125,10 +125,10 @@ BEGIN.
               *>   Capture updated TransRecord
               MOVE NewStudentRecord TO LOGLINE
               MOVE 'UPDATE' TO ACTION 
-              STRING ACTION,LOGLINE DELIMITED BY SIZE
+              STRING ACTION,'*',LOGLINE
                    INTO WS-CONCAT-LOG
               END-STRING     
-              DISPLAY 'Data after concatenate: ' WS-CONCAT-LOG                  
+              DISPLAY 'Data passed to sub-program: ' WS-CONCAT-LOG                  
               CALL "logger2" USING BY REFERENCE WS-CONCAT-LOG
               
             *>   STRING WS-DATA,WS-DATA1 DELIMITED BY SIZE

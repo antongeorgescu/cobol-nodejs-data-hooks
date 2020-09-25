@@ -1,0 +1,22 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "COBOL",
+            "request": "launch",
+            "name": "Rech COBOL Debugger",
+            "commandLine": "${command:commandLineBuild}",
+            "stopOnEntry": true
+        },
+        {
+            "name": "OK COBOL Debugger",
+            "type": "gdb",
+            "request": "launch",
+            "cobcargs": ["-free", "-x"],
+            "group": ["studentwrite.cbl", "logger2.cbl"]
+        }
+    ]
+}

@@ -83,28 +83,38 @@ namespace user_interface
             System.IO.File.WriteAllLines(@"C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\cobol-os\data\transins.dat", lines);
 
             // Execute PowerShell script that runs COBOL programs
-            var psScript = new StringBuilder();
+            //var psScript = new StringBuilder();
             
-            var path = @"C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\cobol-os";
-            psScript.AppendLine($"$WorkingDir = \"{path}\"");
-            psScript.AppendLine("$CurrMasterDataFile = Join-Path $WorkingDir \"\\data\\students.dat\"");
-            psScript.AppendLine("$fileExist = Test-Path $CurrMasterDataFile");
-            psScript.AppendLine("if ($fileExist) {Remove-Item $CurrMasterDataFile}");
-            psScript.AppendLine("$OrigMasterDataFile = Join-Path $WorkingDir \"\\data\\students_orig.dat\"");
-            psScript.AppendLine("$DestinationFile = Join-Path $WorkingDir \"\\data\\students.dat\"");
-            psScript.AppendLine("Copy-Item $OrigMasterDataFile -Destination $DestinationFile");
-            psScript.AppendLine("$Executable = Join-Path $WorkingDir \"\\studentwrite.exe\"");
-            psScript.AppendLine("& $Executable");
+            //var path = @"C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\cobol-os";
+            //psScript.AppendLine($"$WorkingDir = \"{path}\"");
+            //psScript.AppendLine("$CurrMasterDataFile = Join-Path $WorkingDir \"\\data\\students.dat\"");
+            //psScript.AppendLine("$fileExist = Test-Path $CurrMasterDataFile");
+            //psScript.AppendLine("if ($fileExist) {Remove-Item $CurrMasterDataFile}");
+            //psScript.AppendLine("$OrigMasterDataFile = Join-Path $WorkingDir \"\\data\\students_orig.dat\"");
+            //psScript.AppendLine("$DestinationFile = Join-Path $WorkingDir \"\\data\\students.dat\"");
+            //psScript.AppendLine("Copy-Item $OrigMasterDataFile -Destination $DestinationFile");
+            //psScript.AppendLine("$Executable = Join-Path $WorkingDir \"\\studentwrite.exe\"");
+            //psScript.AppendLine("& $Executable");
             
-            // remove students.dat file and rename students1.dat
-            psScript.AppendLine("Remove-Item $CurrMasterDataFile");
-            psScript.AppendLine("$NewMasterDataFile = Join-Path $WorkingDir \"\\data\\students1.dat\"");
-            psScript.AppendLine("Rename-Item -Path $NewMasterDataFile -NewName \"students.dat\"");
+            //// remove students.dat file and rename students1.dat
+            //psScript.AppendLine("Remove-Item $CurrMasterDataFile");
+            //psScript.AppendLine("$NewMasterDataFile = Join-Path $WorkingDir \"\\data\\students1.dat\"");
+            //psScript.AppendLine("Rename-Item -Path $NewMasterDataFile -NewName \"students.dat\"");
 
-            List<string> results = RunScript(psScript.ToString());
+            //List<string> results = RunScript(psScript.ToString());
+            //tbExecResults.Clear();
+            //foreach (var result in results)
+            //    tbExecResults.AppendText(result);
+
+            var psScriptDir = @"C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\green-screen\data-access-layer";
+            var cobolOsDir = @"C:\Users\ag4488\Documents\Visual Studio 2019\Projects\cobol-nodejs-data-hooks\cobol-os";
+            List<string> results = RunPsScriptLocal("runtrxs.ps1",
+                                                        psScriptDir,
+                                                        cobolOsDir);
             tbExecResults.Clear();
             foreach (var result in results)
                 tbExecResults.AppendText(result);
+
         }
 
         private List<string> RunScript(string scriptText)
@@ -143,6 +153,47 @@ namespace user_interface
 
             // convert the script result into a single string
 
+            List<string> outs = new List<string>();
+            foreach (PSObject obj in results)
+            {
+                outs.Add(obj.ToString());
+            }
+
+            return outs;
+        }
+
+        public List<string> RunPsScriptLocal(string scriptName,
+                                        string scriptDir,
+                                        string cobolOsDir)
+        {
+            // change PowerShell script execution policy
+            // Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+            IEnumerable<PSObject> results;
+            var config = RunspaceConfiguration.Create();
+            //var host = new ScriptHost();
+            var script = $"{scriptName} \"{cobolOsDir}\"";
+            using (var runspace = RunspaceFactory.CreateRunspace(config))
+            {
+                runspace.Open();
+                runspace.SessionStateProxy.SetVariable("prog", this);
+
+                using (var pipeline = runspace.CreatePipeline())
+                {
+                    if (!string.IsNullOrEmpty(scriptDir))
+                        pipeline.Commands.AddScript(string.Format("$env:path = \"{0};\" + $env:path", scriptDir));
+
+                    pipeline.Commands.AddScript(script);
+
+                    //var outDefault = new Command("out-default");
+                    var outDefault = new Command("Out-String");
+                    outDefault.MergeMyResults(PipelineResultTypes.Error, PipelineResultTypes.Output);
+                    pipeline.Commands.Add(outDefault);
+
+                    results = pipeline.Invoke();
+
+                    
+                }
+            }
             List<string> outs = new List<string>();
             foreach (PSObject obj in results)
             {
